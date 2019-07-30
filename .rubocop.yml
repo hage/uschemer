@@ -1,0 +1,52 @@
+AllCops:
+  Exclude:
+    - 'vendor/**/*'
+    - 'data/**/*'
+    - 'out/**/*'
+    - 'view/**/*'
+    - 'tmp/**/*'
+  DisplayCopNames: true
+Rails:
+  Enabled: true
+Layout/SpaceInsideBlockBraces:
+  Enabled: false
+Style/StringLiterals:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Style/AsciiComments:
+  Enabled: false
+Layout/EmptyLines:
+  Enabled: false
+Metrics/LineLength:
+  Enabled: false
+Style/SpecialGlobalVars:
+  Enabled: false
+Style/YodaCondition:
+  Enabled: false
+Metrics/MethodLength:
+  Enabled: false
+Style/TrivialAccessors:
+  Enabled: false
+Style/SingleLineMethods:
+  Enabled: false
+Layout/EmptyLineBetweenDefs:
+  Enabled: false
+Style/WordArray:
+  Enabled: false
+Layout/SpaceBeforeBlockBraces:
+  Enabled: false
+Style/NegatedIf:
+  Enabled: false
+Naming/FileName:
+  Enabled: false
+Layout/SpaceInsideHashLiteralBraces:
+  Enabled: false
+Style/TrailingCommaInHashLiteral:
+  Enabled: false
+Layout/AlignHash:
+  Enabled: false
+Layout/SpaceAroundOperators:
+  Enabled: false
+Style/PercentLiteralDelimiters:
+  Enabled: false

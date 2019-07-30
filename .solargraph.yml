@@ -1,0 +1,17 @@
+---
+include:
+- "**/*.rb"
+- "~/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/**/*.rb"
+exclude:
+- spec/**/*
+- test/**/*
+- vendor/**/*
+- ".bundle/**/*"
+require:
+- test-unit
+domains: []
+reporters:
+- rubocop
+# - require_not_found
+require_paths: []
+max_files: 5000
