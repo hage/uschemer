@@ -56,4 +56,14 @@ class TestEval < Test::Unit::TestCase
   def test_apply
     assert_equal 10, Eval.apply(->(a, b) {a + b}, [4, 6])
   end
+
+  def test_eval_list
+    assert_equal [1, 2, 3], Eval.eval_list([1, 2, 3])
+  end
+
+  def test_eval
+    assert_equal 1, Eval.eval(1)
+    assert_equal 1, Eval.eval([:-, 3, 2])
+    assert_equal 1, Eval.eval([:-, [:+, 5, 2], [:*, 3, 2]])
+  end
 end

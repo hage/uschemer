@@ -21,6 +21,10 @@ module Eval
     fun.call(*args)
   end
 
+  def eval_list(exp)
+    exp.map{|e| Eval.eval(e)}
+  end
+
   def list?(exp)
     exp.is_a?(Array)
   end
