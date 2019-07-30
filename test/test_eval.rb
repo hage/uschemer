@@ -41,4 +41,15 @@ class TestEval < Test::Unit::TestCase
       Eval.lookup_primitive_fun(1)
     end
   end
+
+  def test_car
+    assert_equal :a, Eval.car(%i[a b])
+    assert_equal nil, Eval.car([])
+  end
+
+  def test_cdr
+    assert_equal nil, Eval.cdr([])
+    assert_equal %i[b], Eval.cdr(%i[a b])
+    assert_equal %i[b c], Eval.cdr(%i[a b c])
+  end
 end

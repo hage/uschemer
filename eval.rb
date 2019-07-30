@@ -37,4 +37,12 @@ module Eval
       raise "unknown function: #{exp}"
     end
   end
+
+  def car(exp)
+    exp[0]
+  end
+
+  def cdr(exp)
+    exp[1..-1]
+  end
 end
