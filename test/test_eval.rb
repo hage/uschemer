@@ -52,4 +52,8 @@ class TestEval < Test::Unit::TestCase
     assert_equal %i[b], Eval.cdr(%i[a b])
     assert_equal %i[b c], Eval.cdr(%i[a b c])
   end
+
+  def test_apply
+    assert_equal 10, Eval.apply(->(a, b) {a + b}, [4, 6])
+  end
 end

@@ -17,6 +17,10 @@ module Eval
     end
   end
 
+  def apply(fun, args)
+    fun.call(*args)
+  end
+
   def list?(exp)
     exp.is_a?(Array)
   end
