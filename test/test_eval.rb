@@ -28,7 +28,7 @@ class TestEval < Test::Unit::TestCase
     assert_false Eval.list?(1)
   end
 
-  def immediate_val?
+  def test_immediate_val?
     assert_true Eval.immediate_val?(1)
     assert_false Eval.immediate_val?([])
   end
