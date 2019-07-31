@@ -11,11 +11,6 @@ module Environment
   end
 
   def extend_env(params, args, env)
-    alist = params.zip(args)
-    h = {}
-    alist.each do |k, v|
-      h[k] = v
-    end
-    [h] + env
+    [Hash[params.zip(args)]] + env
   end
 end
