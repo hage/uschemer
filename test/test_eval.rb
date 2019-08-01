@@ -23,16 +23,6 @@ class TestEval < Test::Unit::TestCase
   end
 
   ################ Test Cases
-  def test_list?
-    assert_true Eval.list?([])
-    assert_false Eval.list?(1)
-  end
-
-  def test_immediate_val?
-    assert_true Eval.immediate_val?(1)
-    assert_false Eval.immediate_val?([])
-  end
-
   def test_lookup_primitive_fun
     assert_equal 10, Eval.lookup_primitive_fun(:+).call(8, 2)
     assert_equal 10, Eval.lookup_primitive_fun(:*).call(5, 2)
@@ -40,17 +30,6 @@ class TestEval < Test::Unit::TestCase
     assert_raise(RuntimeError) do
       Eval.lookup_primitive_fun(1)
     end
-  end
-
-  def test_car
-    assert_equal :a, Eval.car(%i[a b])
-    assert_equal nil, Eval.car([])
-  end
-
-  def test_cdr
-    assert_equal nil, Eval.cdr([])
-    assert_equal %i[b], Eval.cdr(%i[a b])
-    assert_equal %i[b c], Eval.cdr(%i[a b c])
   end
 
   def test_apply

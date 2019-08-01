@@ -1,6 +1,11 @@
+# -*- compile-command: "rake test"; -*-
 # frozen_string_literal: true
 
+require File.join(__dir__, 'list')
+
 module Eval
+  extend List
+
   module_function
 
   def eval(exp)
@@ -25,14 +30,6 @@ module Eval
     exp.map{|e| Eval.eval(e)}
   end
 
-  def list?(exp)
-    exp.is_a?(Array)
-  end
-
-  def immediate_val?(exp)
-    exp.is_a?(Integer)
-  end
-
   def lookup_primitive_fun(exp)
     case exp
     when :+
@@ -44,13 +41,5 @@ module Eval
     else
       raise "unknown function: #{exp}"
     end
-  end
-
-  def car(exp)
-    exp[0]
-  end
-
-  def cdr(exp)
-    exp[1..-1]
   end
 end
