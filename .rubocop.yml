@@ -50,3 +50,5 @@ Layout/SpaceAroundOperators:
   Enabled: false
 Style/PercentLiteralDelimiters:
   Enabled: false
+Style/SymbolArray:
+  Enabled: false
