@@ -6,5 +6,7 @@ task default: [:test]
 
 Rake::TestTask.new do |test|
   test.test_files = Dir['test/**/test_*.rb']
-  test.verbose = true
+  test.verbose = false
+  test.warning = true
+  test.options = '--verbose=n --no-stop-on-failure'
 end
