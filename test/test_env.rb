@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 require 'test-unit'
-require File.join(__dir__, '../environment')
+require __dir__ + '/../env'
 
-class TestEnvironment < Test::Unit::TestCase
+class TestEnv < Test::Unit::TestCase
   class << self
     def startup
       # テスト群の実行前に呼ばれる
@@ -24,15 +24,15 @@ class TestEnvironment < Test::Unit::TestCase
 
   ################ Test Cases
   def test_lookup
-    assert_equal 1, Environment.lookup(:a, [{a: 1}, {a: 2, b: 3}])
-    assert_equal 2, Environment.lookup(:a, [{b: 1}, {a: 2, b: 3}])
+    assert_equal 1, Env.lookup(:a, [{a: 1}, {a: 2, b: 3}])
+    assert_equal 2, Env.lookup(:a, [{b: 1}, {a: 2, b: 3}])
     assert_raise(RuntimeError) do
-      Environment.lookup(:a, [{b: 1}, {c: 1}])
+      Env.lookup(:a, [{b: 1}, {c: 1}])
     end
   end
 
   def test_extend_env
-    assert_equal [{a: 1}], Environment.extend_env([:a], [1], [])
-    assert_equal [{a: 1}, {a: 2}], Environment.extend_env([:a], [1], [{a: 2}])
+    assert_equal [{a: 1}], Env.extend([:a], [1], [])
+    assert_equal [{a: 1}, {a: 2}], Env.extend([:a], [1], [{a: 2}])
   end
 end

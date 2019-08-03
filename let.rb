@@ -1,14 +1,18 @@
 # -*- compile-command: "rake test TEST=test/test_let.rb"; -*-
 # frozen_string_literal: true
 
-$LOAD_PATH << __dir__
-require 'eval'
-require 'list'
+require __dir__ + '/list'
 
 module Let
   extend List
 
   module_function
+
+  def eval(exp, env)
+    params, args, body = let_to_params_args_body(exp)
+    nexp = [[:lambda, params, body]] + args
+    Eval.eval(nexp, env)
+  end
 
   def let?(exp)
     :let == car(exp)

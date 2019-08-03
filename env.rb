@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Environment
+module Env
   module_function
 
   def lookup(var, env)
@@ -10,7 +10,7 @@ module Environment
     alist[var]
   end
 
-  def extend_env(params, args, env)
+  def extend(params, args, env)
     [Hash[params.zip(args)]] + env
   end
 end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'test-unit'
-require "#{__dir__}/../list"
+require __dir__ + '/../list'
 
 class TestList < Test::Unit::TestCase
   def test_list?
