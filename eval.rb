@@ -61,15 +61,13 @@ module Eval
 
   def lookup_primitive_fun(exp)
     fun = case exp
-           when :+
-             ->(a, b) {a + b}
-           when :-
-             ->(a, b) {a - b}
-           when :*
-             ->(a, b) {a * b}
-           else
-             nil
-           end
+          when :+
+            ->(a, b) {a + b}
+          when :-
+            ->(a, b) {a - b}
+          when :*
+            ->(a, b) {a * b}
+          end
     fun ? [:prim, fun] : nil
   end
 end
